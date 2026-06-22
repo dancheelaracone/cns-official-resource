@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>世界杯站点与可信说明 — 产品介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f9f5;
+      color: #1d3b3a;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 4rem;
+    }
+    /* 蓝绿色点缀 — 卡片与分割 */
+    .bg-accent-soft {
+      background: #d9ede8;
+    }
+    .border-accent {
+      border: 1px solid #a8cbc2;
+    }
+    .text-accent {
+      color: #1e6b63;
+    }
+
+    /* Hero区域 */
+    .hero {
+      text-align: left;
+      margin-bottom: 2.5rem;
+      padding: 2.2rem 1.8rem;
+      background: linear-gradient(145deg, #e1f3ed, #cbe5dd);
+      border-radius: 28px;
+      box-shadow: 0 8px 18px rgba(23, 70, 65, 0.06);
+    }
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02rem;
+      color: #0c3d38;
+      margin-bottom: 0.8rem;
+    }
+    .hero p {
+      font-size: 1rem;
+      max-width: 650px;
+      color: #2b5550;
+    }
+
+    /* 网格卡片系统 */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.8rem 0;
+    }
+    .grid-card {
+      background: #ffffffd0;
+      backdrop-filter: blur(2px);
+      padding: 1.8rem 1.4rem;
+      border-radius: 24px;
+      border: 1px solid #bcd9d1;
+      box-shadow: 0 4px 10px rgba(30, 90, 80, 0.04);
+      transition: transform 0.15s ease, box-shadow 0.2s;
+    }
+    .grid-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(22, 75, 67, 0.08);
+    }
+    .grid-card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      border-left: 4px solid #299184;
+      padding-left: 0.8rem;
+      color: #0f4942;
+    }
+    .grid-card p, .grid-card ul {
+      font-size: 0.95rem;
+      color: #2f5b55;
+    }
+    .grid-card ul {
+      padding-left: 1.3rem;
+      list-style-type: disc;
+    }
+    .grid-card ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* 场景区块 差异排版 */
+    .scenario-block {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.2rem 1.8rem;
+      margin: 2.2rem 0;
+      border: 1px solid #b7d4cc;
+      box-shadow: 0 4px 14px rgba(0, 40, 35, 0.02);
+    }
+    .scenario-block h2 {
+      font-size: 1.5rem;
+      font-weight: 550;
+      color: #11534a;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+      border-bottom: 3px solid #47b5a5;
+      padding-bottom: 0.2rem;
+    }
+    .scenario-block .desc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .scenario-item {
+      flex: 1 1 200px;
+      padding: 0.9rem 0.8rem 0.9rem 1.2rem;
+      border-left: 3px solid #7bc0b0;
+      background: #f3faf7;
+      border-radius: 18px;
+    }
+    .scenario-item strong {
+      color: #176a5f;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #e2f2eb;
+      border-radius: 28px;
+      padding: 1.8rem 1.8rem 1.5rem;
+      margin: 2rem 0 2.8rem;
+      border: 1px solid #aaccc2;
+    }
+    .faq-mini h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #0b453f;
+      margin-bottom: 1.2rem;
+    }
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #8cbcb0;
+    }
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+    .faq-item .q {
+      font-weight: 550;
+      color: #195b52;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .faq-item .a {
+      font-size: 0.95rem;
+      color: #376d64;
+    }
+
+    /* 可信 + 访问说明 */
+    .note-credit {
+      margin: 2rem 0 2.5rem;
+      padding: 1.2rem 1.6rem;
+      background: #d4eae3;
+      border-radius: 30px;
+      border-left: 5px solid #2d9c8a;
+      font-size: 0.95rem;
+      color: #1d5149;
+    }
+    .note-credit a {
+      color: #13665a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+    .note-credit a:visited {
+      color: #13665a;
+    }
+    .note-credit a:hover {
+      color: #0b4d43;
+      background: #c2e2d8;
+      padding: 0 0.2rem;
+    }
+
+    /* 尾部 */
+    .footer-note {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #c0d8d0;
+      font-size: 0.85rem;
+      color: #4b756d;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 680px) {
+      .container {
+        padding: 1.5rem 0.5rem 3rem;
+      }
+      .hero {
+        padding: 1.6rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .scenario-block .desc {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .faq-mini {
+        padding: 1.3rem;
+      }
+      .note-credit {
+        padding: 1rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .grid-card h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero 介绍 -->
+    <div class="hero">
+      <h1>世界杯 · 站点导览与可信说明</h1>
+      <p>这里围绕赛事信息呈现一个专注、克制的介绍页面。我们以产品说明的视角，梳理内容亮点、适用场景及访问建议，帮助使用者更清晰地了解 <a href="https://cns-official-worldcup.com" style="color:#0b5d51; text-decoration: underline;">世界杯</a> 相关资源的结构与边界。</p>
+    </div>
+
+    <!-- 网格卡片：亮点 + 产品摘要 -->
+    <div class="grid-2col">
+      <div class="grid-card">
+        <h3>📋 内容亮点</h3>
+        <ul>
+          <li>赛事规则、历史赛果与球队数据模块化呈现</li>
+          <li>信息组织偏重客观记录，减少冗余推荐</li>
+          <li>页面结构适配多数移动端设备，浏览无缩放障碍</li>
+          <li>保持克制的视觉语言，蓝绿色调降低阅读负担</li>
+        </ul>
+      </div>
+      <div class="grid-card">
+        <h3>🧩 使用建议</h3>
+        <ul>
+          <li>适合赛前预习、赛后数据回溯等场景</li>
+          <li>建议搭配官方赛程表交叉参考</li>
+          <li>移动端横屏可显示更多统计列</li>
+          <li>无自动刷新机制，适合安静阅读</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 场景区块：差异内容 —— 使用建议扩展 -->
+    <div class="scenario-block">
+      <h2>🏟️ 典型使用场景</h2>
+      <div class="desc">
+        <div class="scenario-item">
+          <strong>球迷研究</strong><br>
+          浏览历史对阵与进球分布，形成个人观赛笔记。
+        </div>
+        <div class="scenario-item">
+          <strong>媒体参考</strong><br>
+          快速提取赛事结构、阶段说明与基础数据，辅助内容制作。
+        </div>
+        <div class="scenario-item">
+          <strong>入门了解</strong><br>
+          对赛制、球队背景感到陌生的观众，可从此页面获得清晰概览。
+        </div>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #256f64;">以上场景均不涉及实时博彩或非官方预测，仅提供已公开的赛事知识。</p>
+    </div>
+
+    <!-- FAQ摘要 -->
+    <div class="faq-mini">
+      <h2>❓ 常见疑问摘要</h2>
+      <div class="faq-item">
+        <span class="q">页面数据是否实时更新？</span>
+        <span class="a">本页面为介绍性静态页，不包含动态赛况。建议直接浏览 <a href="https://cns-official-worldcup.com" style="color:#136458; text-decoration: underline;">世界杯</a> 对应板块以获取最新比赛信息。</span>
+      </div>
+      <div class="faq-item">
+        <span class="q">是否存在外部跳转或推广？</span>
+        <span class="a">没有。所有内容均围绕赛事本身，不嵌入第三方广告或联盟链接。</span>
+      </div>
+      <div class="faq-item">
+        <span class="q">适合打印或离线阅读吗？</span>
+        <span class="a">页面使用系统字体与低对比度配色，打印效果干净，支持保存为 PDF。</span>
+      </div>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="note-credit">
+      <strong>⚡ 可信访问说明</strong><br>
+      本页面对应站点内容由爱好者与信息整理者共同维护，数据来源以公开赛事档案为准。我们鼓励使用者通过 <a href="https://cns-official-worldcup.com">世界杯</a> 官方信息源进行交叉验证。页面不包含任何自动跳转或弹窗，所有链接仅指向同一域名下的结构内容。请根据自身需要合理使用，避免依赖单一信源。
+    </div>
+
+    <!-- 额外点缀：一句引用式说明 -->
+    <div style="margin: 1.8rem 0 0.8rem; padding: 0.8rem 1rem; background: #e6f3ef; border-radius: 40px; border: 1px solid #b3cfc5; text-align: center; font-size: 0.9rem; color: #1c5c53;">
+      🌿 基于知识整理而非流量逻辑，页面内容保持克制与透明。
+    </div>
+
+    <div class="footer-note">
+      站点地图 · 内容说明 · © 介绍页（非官方）
+    </div>
+  </div>
+</body>
+</html>
